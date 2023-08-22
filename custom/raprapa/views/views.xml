@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <!-- Top-level menu -->
+        <menuitem id="menu_raprapa" name="RapRapa" sequence="10"/>
+
+        <!-- Tree view for the Member model -->
+        <record id="view_raprapa_member_tree" model="ir.ui.view">
+            <field name="name">raprapa.member.tree</field>
+            <field name="model">raprapa.member</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="birth_date"/>
+                    <field name="citizenship_number"/>
+                    <field name="voter_id"/>
+                    <field name="mobile_no"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for the sub-level menu -->
+        <record id="action_raprapa_members" model="ir.actions.act_window">
+            <field name="name">RapRapa Members</field>
+            <field name="res_model">raprapa.member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_raprapa_member_tree"/>
+        </record>
+
+        <!-- Sub-level menu under top-level menu -->
+        <menuitem id="menu_raprapa_members" name="Members" parent="menu_raprapa" sequence="10" action="action_raprapa_members"/>
+
+    </data>
+</odoo>
