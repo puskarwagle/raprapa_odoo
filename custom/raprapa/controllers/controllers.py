@@ -7,3 +7,7 @@ class RaprapaController(http.Controller):
     def formpage(self):
         return request.render('raprapa.index_form')
 
+    @http.route('/payment', type='http', website=True, auth="public")
+    def paymentpage(self):
+        return request.render('raprapa.payment')
+

@@ -23,6 +23,7 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/index.xml',
+        'views/payment.xml',
     ],
     'installable': True,
     'auto_install': False,
