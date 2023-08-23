@@ -1,0 +1,26 @@
+<odoo>
+    <template id="raprapa.index_form">
+<!--        <t t-call="website.layout">-->
+            <xpath expr="//head" position="inside">
+                <link rel="stylesheet" href="/raprapa/static/src/css/style.css"/>
+            </xpath>
+            <div t-slot="main" class="custom-content">
+                <div class="form-group">
+                <label class="english-label" style="display: none;" for="name">1. Name :</label>
+                <label class="nepali-label" for="name">१. नामः</label>
+                <input type="text" class="form-control" t-att-id="name" t-att-name="name"/>
+
+                <label class="english-label" style="display: none;" for="birth_date">Date of birth :</label>
+                <label class="nepali-label" for="birth_date">जन्म मिति :</label>
+                <input type="date" class="form-control" t-att-id="birth_date" t-att-name="birth_date"/>
+
+                <label class="nepali-label" for="citizenship_number">नागरिकता नम्बर :</label>
+                <label class="english-label" style="display: none;" for="citizenship_number">Citizenship No.:
+                </label>
+                <input type="number" class="form-control" t-att-id="citizenship_number"
+                       t-att-name="citizenship_number"/>
+            </div>
+            </div>
+<!--        </t>-->
+    </template>
+</odoo>

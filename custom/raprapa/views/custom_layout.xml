@@ -1,0 +1,20 @@
+<odoo>
+    <template id="website.custom_layout" name="Custom Website Layout" inherit_id="website.layout">
+        <!-- Customize the layout structure here -->
+        <t t-call="website.layout">
+            <t t-foreach="website.head_links" t-as="link" t-call="website.head_link"/>
+            <title><t t-raw="page_title"/></title>
+            <t t-call="website.head_end"/>
+            <t t-raw="0"/>
+            <div class="custom-header">
+                <!-- Your custom header content -->
+            </div>
+            <div class="custom-content">
+                <t t-slot="main" t-raw="main"/>
+            </div>
+            <div class="custom-footer">
+                <!-- Your custom footer content -->
+            </div>
+        </t>
+    </template>
+</odoo>
