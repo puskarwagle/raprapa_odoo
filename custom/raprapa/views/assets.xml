@@ -1,7 +1,0 @@
-<odoo>
-    <template id="assets_frontend" name="raprapa assets" inherit_id="web.assets_frontend">
-        <xpath expr="." position="inside">
-            <link rel="stylesheet" href="/raprapa/static/src/assets/raprapa/css/style.css"/>
-        </xpath>
-    </template>
-</odoo>

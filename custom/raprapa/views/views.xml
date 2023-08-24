@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <!-- Top-level menu -->
-        <menuitem id="menu_raprapa" name="RapRapa" sequence="10"/>
+        <menuitem id="menu_raprapa" name="Raprapa" sequence="10"/>
 
         <!-- Tree view for the Member model -->
         <record id="view_raprapa_member_tree" model="ir.ui.view">

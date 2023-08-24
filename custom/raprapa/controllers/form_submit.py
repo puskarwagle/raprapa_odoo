@@ -3,7 +3,6 @@ from odoo.http import request
 
 
 class MyFormController(http.Controller):
-
     @http.route('/submit_form', type='http', auth='public', website=True)
     def submit_form(self, **post):
         # Retrieve data from the submitted form
@@ -33,4 +32,4 @@ class MyFormController(http.Controller):
 
         # Redirect to a thank you page or any other page after form submission
         return request.redirect('/payment?name=%s&membership_duration=%s&membership_type=%s' % (name, membership_duration, membership_type))
-
+        # return request.redirect('/payment')

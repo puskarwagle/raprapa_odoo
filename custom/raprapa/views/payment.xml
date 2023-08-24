@@ -4,7 +4,6 @@
             <link rel="stylesheet" href="/raprapa/static/src/css/payment.css"/>
         </head>
         <main class="container">
-            <!-- Static images -->
             <div class="contain" id="first-box" style="display: flex;">
                 <div>
                     <p t-if="request.params.get('name')">
