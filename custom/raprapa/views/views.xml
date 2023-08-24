@@ -13,7 +13,7 @@
                     <field name="birth_date"/>
                     <field name="citizenship_number"/>
                     <field name="voter_id"/>
-                    <field name="mobile_no"/>
+                    <field name="phone"/>
                     <field name="email"/>
                     <field name="membership_type"/>
                     <field name="membership_duration"/>

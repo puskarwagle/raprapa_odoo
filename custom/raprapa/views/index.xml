@@ -9,7 +9,7 @@
 
         <main class="d-flex flex-column container mt-5 p-2 ps-5 pe-5 bg-white font-weight-bold border">
             <div class="toggleContainer d-flex align-items-center gap-1">
-                <img src="static/images/nepal.png" alt="" id="languageImage" height="15" width="10"/>
+                <img src="/raprapa/static/src/img/nepal.png" alt="" id="languageImage" height="15" width="10"/>
                 <div class="language-switch">
                     <input type="checkbox" id="language-toggle"/>
                     <label for="language-toggle">
@@ -29,7 +29,6 @@
                                 <span id="photo_label">photo</span>
                             </div>
                         </label>
-                        <!-- Actual file input -->
                         <input type="file" style="visibility: hidden;" class="form-control" id="photo" accept="image/*"
                                onchange="displayPreview(event)" name="photo"/>
                     </div>
@@ -39,8 +38,8 @@
                 <h1 class="text-center mb-4" id="english-label-h1" style="text-decoration: underline; display: none;">
                     Active Membership Form New / Renewal
                 </h1>
-                <h1 class="text-center mb-4" id="nepali-label-h1" style="text-decoration: underline; ">सक्रिय
-                    सदस्यतासक्रिय सदस्यता फारम
+                <h1 class="text-center mb-4" id="nepali-label-h1" style="text-decoration: underline; ">
+                    सदस्यता फारम
                 </h1>
 
                 <span class="english-label" style="display: none; font-weight: bold !important;">Mr. President,</span>

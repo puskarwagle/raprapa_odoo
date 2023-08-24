@@ -6,17 +6,10 @@
         <main class="container">
             <div class="contain" id="first-box" style="display: flex;">
                 <div>
-                    <p t-if="request.params.get('name')">
-                        <t t-esc="request.params['name']"/>
-                    </p>
-                    <p id="membership_type">
-                        <t t-esc="request.params.get('membership_type', '')"/>
-                    </p>
-                    <p id="membership_duration">
-                        <t t-esc="request.params.get('membership_duration', '')"/>
-                    </p>
-
-                    <p id="money"></p>
+                    <p><t t-esc="redirect_params.get('name')"/></p>
+                    <p id="membership_type"><t t-esc="redirect_params.get('membership_type')"/></p>
+                    <p id="membership_duration"><t t-esc="redirect_params.get('membership_duration')"/></p>
+                    <p id="money"> </p>
                 </div>
                 <div class="payment_gateways">
                     <img src="/raprapa/static/src/img/khalti.jpeg" alt="khalti"/>
@@ -44,27 +37,25 @@
             <!-- Payment gateway forms for khalti esewa etc-->
             <div class="contain" id="second-box">
                 <!-- khalti -->
-                <form action="/initiate_khalti_payment/" method="POST" id="khalti-gateway"
-                      onsubmit="initiateKhaltiPayment(event)">
-                    {% csrf_token %}
+                <form action="/initiate_khalti_payment/" method="POST" id="khalti-gateway">
                     <h2>Pay With Khalti</h2>
                     <div class="form-group">
                         <label class="" for="name">नाम/Name :</label>
-                        <input type="text" class="form-control" id="name" value="{{ name }}" name="name"
-                               required="required"/>
+                        <input type="text" class="form-control" id="name" t-att-value="request.session.get('name')" name="name" required="required"/>
                     </div>
                     <div class="form-group">
                         <label class="" for="phone">सम्पर्क नं./Mobile Number :</label>
-                        <input type="number" class="form-control" id="phone" value="{{ phone }}" name="phone"
+                        <input type="number" class="form-control" id="phone" t-att-value="request.session.get('phone')" name="phone"
                                required="required"/>
                     </div>
                     <div class="form-group">
                         <label class="" for="email">इमेल/Email :</label>
-                        <input type="email" class="form-control" value="{{ email }}" id="email" name="email"/>
+                        <input type="email" class="form-control" t-att-value="request.session.get('email')" id="email" name="email"/>
                     </div>
                     <div class="form-group">
                         <label class="" for="amount">Amount in Paisa:</label>
-                        <input type="text" readonly="readonly" style="visibility: visible;" class="form-control"
+                        <input type="text" readonly="readonly"
+                               style="visibility: visible;" class="form-control"
                                id="amount"
                                value=""
                                name="amount"/>
@@ -227,6 +218,6 @@
             </div> <!-- 4 contain -->
         </main>
 
-        <script src="/raprapa/static/src/js/payment.js"></script>
+        <script src="/raprapa/static/src/js/payment.js"> </script>
     </template>
 </odoo>

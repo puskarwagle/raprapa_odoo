@@ -2,3 +2,4 @@
 
 from . import controllers
 from . import form_submit
+from . import khalti

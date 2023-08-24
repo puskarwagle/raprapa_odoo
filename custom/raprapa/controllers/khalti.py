@@ -1,0 +1,40 @@
+import requests
+from odoo import http
+from odoo.http import request
+from werkzeug.utils import redirect
+
+
+class KhaltiController(http.Controller):
+    @http.route('/initiate_khalti_payment/', type='http', auth='public', website=True, csrf=False)
+    def initiate_khalti_payment(self, **post):
+        url = "https://a.khalti.com/api/v2/epayment/initiate/"
+        headers = {
+            "Authorization": "Key 0ee3e3a99d294a01b700cb5c15323723",
+            "Content-Type": "application/json"
+        }
+
+        # Get the form data from the POST request
+        name = post.get("name")
+        phone = post.get("phone")
+        email = post.get("email")
+        amount = post.get("amount")
+
+        data = {
+            "return_url": "http://localhost:8077/id_card/",
+            "website_url": "http://localhost:8077/payment/",
+            "amount": amount,
+            "purchase_order_id": "12345",
+            "purchase_order_name": "Raprapa id card",
+            "customer_info": {
+                "name": name,
+                "email": email,
+                "phone": phone
+            }
+        }
+
+        response = requests.post(url, json=data, headers=headers)
+        payment_data = response.json()
+        payment_url = payment_data.get("payment_url")
+
+        # Redirect the user to the payment URL
+        return redirect(payment_url)
