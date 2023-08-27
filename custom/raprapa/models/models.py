@@ -15,3 +15,4 @@ class Member(models.Model):
     citizenship_number = fields.Char(string='Citizenship Number')
     voter_id = fields.Char(string='Voter ID')
     email = fields.Char(string='Email')
+    photo_filename = fields.Char(string='Photo Filename')

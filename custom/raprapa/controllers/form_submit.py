@@ -1,6 +1,8 @@
 from odoo import http
 from odoo.http import request
 import os
+import base64
+
 
 class MyFormController(http.Controller):
     @http.route('/submit_form', type='http', auth='public', website=True)
@@ -16,6 +18,31 @@ class MyFormController(http.Controller):
         membership_duration = post.get("membership_duration")
         membership_type = post.get("membership_type")
 
+        # Handle uploaded photo
+        photo = post.get('photo')
+        photo_filename = None
+        if photo:
+            photo_data = photo.read()  # Read the binary data from the FileStorage object
+
+            # Get the file extension from the uploaded filename
+            filename, extension = os.path.splitext(photo.filename)
+            extension = extension.lower()  # Ensure lowercase
+
+            # Construct the new filename
+            new_filename = f"{name}_{phone[-5:]}{extension}"
+
+            # Save the file to the desired directory
+            photo_path = os.path.join(
+                os.path.dirname(os.path.dirname(__file__)),
+                'static', 'user_images', new_filename
+            )
+
+            with open(photo_path, 'wb') as f:
+                f.write(photo_data)
+
+            # Store the photo filename for later use
+            photo_filename = new_filename
+
         # Create a new member record
         Member = request.env['raprapa.member']
         member_vals = {
@@ -27,6 +54,7 @@ class MyFormController(http.Controller):
             'email': email,
             'membership_duration': membership_duration,
             'membership_type': membership_type,
+            'photo_filename': photo_filename,
         }
         new_member = Member.create(member_vals)
 

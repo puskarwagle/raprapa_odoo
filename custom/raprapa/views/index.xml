@@ -20,6 +20,9 @@
             </div>
 
             <form action="/submit_form" method="POST" id="membership_form" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                <!-- Image upload -->
                 <div class="form-group">
                     <div style="margin-left: auto; width: 150px; height: 200px; border: 1px solid black;">
                         <label for="photo" class="d-flex align-items-center justify-content-center"
@@ -84,7 +87,6 @@
                         सदस्यता स्वीकृतिको लागि सादर निवेदन गर्दछु।
                     </span>
                 </p>
-                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <div class="form-group">
                     <label class="english-label" style="display: none;" for="name">1. Name :</label>
                     <label class="nepali-label" for="name">१. नामः</label>
@@ -126,35 +128,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="english-label" style="display: none;" for="perm_province">3. Permanent Address : Name
-                        of State :
-                    </label>
+                    <label class="english-label" style="display: none;" for="perm_province">3. Permanent Address : Name of State :</label>
                     <label class="nepali-label" for="perm_province">३. स्थायी ठेगाना : प्रदेशको नाम:</label>
                     <input type="text" class="form-control" id="perm_province" name="perm_province"/>
 
                     <label class="english-label" style="display: none;" for="perm_district">District :</label>
                     <label class="nepali-label" for="perm_district">जिल्ला :</label>
                     <input type="text" class="form-control" id="perm_district" name="perm_district"/>
-
-                    <label class="english-label" style="display: none;" for="perm_constituency">Parliamentary
-                        Constituency No.:
-                    </label>
-                    <label class="nepali-label" for="perm_constituency">संसदीय निर्वाचन
-                        क्षेत्र नं.
-                        :
-                    </label>
-                    <input type="text" class="form-control" id="perm_constituency" name="perm_constituency"/>
-                </div>
-
-                <div class="form-group">
-                    <label class="english-label" style="display: none;" for="perm_constituencyB">State Assembly
-                        Constituency No.:
-                    </label>
-                    <label class="nepali-label" for="perm_constituencyB">प्रदेशसभा निर्वाचन
-                        क्षेत्र
-                        नं. :
-                    </label>
-                    <input type="text" class="form-control" id="perm_constituencyB" name="perm_constituencyB"/>
 
                     <label class="english-label" style="display: none;" for="perm_palika">N. Pa. / Ga. Pa.:</label>
                     <label class="nepali-label" for="perm_palika">न.पा./ गा.पा. :</label>
@@ -163,48 +143,39 @@
                     <label class="english-label" style="display: none;" for="perm_wardno">Ward no.:</label>
                     <label class="nepali-label" for="perm_wardno">वडा नं. :</label>
                     <input type="number" class="form-control" id="perm_wardno" name="perm_wardno"/>
+                </div>
 
-                    <label class="english-label" style="display: none;" for="perm_voting_center">Polling Station :
-                    </label>
-                    <label class="nepali-label" for="perm_voting_center">मतदान केन्द्र
-                        :
-                    </label>
+                <div class="form-group">
+                    <label class="english-label" style="display: none;" for="perm_constituency">Parliamentary Constituency No.:</label>
+                    <label class="nepali-label" for="perm_constituency">संसदीय निर्वाचन क्षेत्र नं. :</label>
+                    <input type="text" class="form-control" id="perm_constituency" name="perm_constituency"/>
+
+                    <label class="english-label" style="display: none;" for="perm_constituencyB">State Assembly Constituency No.:</label>
+                    <label class="nepali-label" for="perm_constituencyB">प्रदेशसभा निर्वाचन क्षेत्र नं. :</label>
+                    <input type="text" class="form-control" id="perm_constituencyB" name="perm_constituencyB"/>
+
+                    <label class="english-label" style="display: none;" for="perm_voting_center">Polling Station :</label>
+                    <label class="nepali-label" for="perm_voting_center">मतदान केन्द्र :</label>
                     <input type="text" class="form-control" id="perm_voting_center" name="perm_voting_center"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="english-label" style="display: none;" for="current_province">4. Present Address : Name
-                        of State :
-                    </label>
-                    <label class="nepali-label" for="current_province">४. हालको ठेगाना :
-                        प्रदेशको नाम
-                        :
-                    </label>
+                    <label class="english-label" style="display: none;" for="current_province">4. Present Address : Name of State :</label>
+                    <label class="nepali-label" for="current_province">४. हालको ठेगाना : प्रदेशको नाम :</label>
                     <input type="text" class="form-control" id="current_province" name="current_province"/>
 
                     <label class="english-label" style="display: none;" for="current_district">District :</label>
                     <label class="nepali-label" for="current_district">जिल्ला :</label>
                     <input type="text" class="form-control" id="current_district" name="current_district"/>
 
-                    <label class="english-label" style="display: none;" for="current_constituency">Parliamentary
-                        Constituency No. :
-                    </label>
-                    <label class="nepali-label" for="current_constituency">संसदीय निर्वाचन
-                        क्षेत्र
-                        नं. :
-                    </label>
+                    <label class="english-label" style="display: none;" for="current_constituency">Parliamentary Constituency No. :</label>
+                    <label class="nepali-label" for="current_constituency">संसदीय निर्वाचन क्षेत्र नं. :</label>
                     <input type="text" class="form-control" id="current_constituency" name="current_constituency"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="english-label" style="display: none;" for="current_constituencyB">State Assembly
-                        Constituency
-                        No.:
-                    </label>
-                    <label class="nepali-label" for="current_constituencyB">प्रदेशसभा
-                        निर्वाचन
-                        क्षेत्र नं. :
-                    </label>
+                    <label class="english-label" style="display: none;" for="current_constituencyB">State Assembly Constituency No.:</label>
+                    <label class="nepali-label" for="current_constituencyB">प्रदेशसभा निर्वाचन क्षेत्र नं. :</label>
                     <input type="text" class="form-control" id="current_constituencyB" name="current_constituencyB"/>
 
                     <label class="english-label" style="display: none;" for="current_palika">N. Pa. / Ga. Pa.:</label>
@@ -215,18 +186,13 @@
                     <label class="nepali-label" for="current_wardno">वडा नं. :</label>
                     <input type="number" class="form-control" id="current_wardno" name="current_wardno"/>
 
-                    <label class="english-label" style="display: none;" for="current_voting_center">Polling Station :
-                    </label>
-                    <label class="nepali-label" for="current_voting_center">मतदान केन्द्र
-                        :
-                    </label>
+                    <label class="english-label" style="display: none;" for="current_voting_center">Polling Station :</label>
+                    <label class="nepali-label" for="current_voting_center">मतदान केन्द्र :</label>
                     <input type="text" class="form-control" id="current_voting_center" name="current_voting_center"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="english-label" style="display: none;" for="father_mother_name">5. Father's/Mother's
-                        Name :
-                    </label>
+                    <label class="english-label" style="display: none;" for="father_mother_name">5. Father's/Mother's Name :</label>
                     <label class="nepali-label" for="father_mother_name">५. पिता / माताकोनाम</label>
                     <input type="text" class="form-control" id="father_mother_name" name="father_mother_name"/>
 
@@ -241,9 +207,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="english-label" style="display: none;" for="literate">6. Educational Qualification:
-                        Literate :
-                    </label>
+                    <label class="english-label" style="display: none;" for="literate">6. Educational Qualification: Literate :</label>
                     <label class="nepali-label" for="literate">६. शैक्षिक योग्यता: साक्षर</label>
                     <input type="radio" id="literate" value="literate" name="education"/>
 
