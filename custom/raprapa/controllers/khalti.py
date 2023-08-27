@@ -36,5 +36,10 @@ class KhaltiController(http.Controller):
         payment_data = response.json()
         payment_url = payment_data.get("payment_url")
 
+        member = request.env['raprapa.member'].sudo().search([('phone', '=', phone)], limit=1)
+
+        if member:
+            member.write({'paid': True})
+
         # Redirect the user to the payment URL
         return redirect(payment_url)

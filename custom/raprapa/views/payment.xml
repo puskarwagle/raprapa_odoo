@@ -38,6 +38,7 @@
             <div class="contain" id="second-box">
                 <!-- khalti -->
                 <form action="/initiate_khalti_payment/" method="POST" id="khalti-gateway">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                     <h2>Pay With Khalti</h2>
                     <div class="form-group">
                         <label class="" for="name">नाम/Name :</label>
@@ -55,7 +56,8 @@
                     <div class="form-group">
                         <label class="" for="amount">Amount in Paisa:</label>
                         <input type="text" readonly="readonly"
-                               style="visibility: visible;" class="form-control"
+                               style="visibility: visible;"
+                               class="form-control"
                                id="amount"
                                value=""
                                name="amount"/>

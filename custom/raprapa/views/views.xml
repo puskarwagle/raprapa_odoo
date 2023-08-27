@@ -15,6 +15,7 @@
                     <field name="voter_id"/>
                     <field name="phone"/>
                     <field name="email"/>
+                    <field name="paid"/>
                     <field name="membership_type"/>
                     <field name="membership_duration"/>
                 </tree>
