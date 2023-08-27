@@ -130,15 +130,23 @@
                 <div class="form-group">
                     <label class="english-label" style="display: none;" for="perm_province">3. Permanent Address : Name of State :</label>
                     <label class="nepali-label" for="perm_province">३. स्थायी ठेगाना : प्रदेशको नाम:</label>
-                    <input type="text" class="form-control" id="perm_province" name="perm_province"/>
+                    <select class="form-control" id="perm_province" name="perm_province">
+                        <option value="Koshi">Koshi</option>
+                        <option value="Madhesh">Madhesh</option>
+                        <option value="Bagmati">Bagmati</option>
+                        <option value="Gandaki">Gandaki</option>
+                        <option value="Lumbini">Lumbini</option>
+                        <option value="Karnali">Karnali</option>
+                        <option value="Sudurpashchim">Sudurpashchim</option>
+                    </select>
 
                     <label class="english-label" style="display: none;" for="perm_district">District :</label>
                     <label class="nepali-label" for="perm_district">जिल्ला :</label>
-                    <input type="text" class="form-control" id="perm_district" name="perm_district"/>
+                    <select class="form-control" id="perm_district" name="perm_district"> </select>
 
-                    <label class="english-label" style="display: none;" for="perm_palika">N. Pa. / Ga. Pa.:</label>
-                    <label class="nepali-label" for="perm_palika">न.पा./ गा.पा. :</label>
-                    <input type="text" class="form-control" id="perm_palika" name="perm_palika"/>
+                    <label class="english-label" style="display: none;" for="perm_municipality">N. Pa. / Ga. Pa.:</label>
+                    <label class="nepali-label" for="perm_municipality">न.पा./ गा.पा. :</label>
+                    <select class="form-control" id="perm_municipality" name="perm_municipality"> </select>
 
                     <label class="english-label" style="display: none;" for="perm_wardno">Ward no.:</label>
                     <label class="nepali-label" for="perm_wardno">वडा नं. :</label>

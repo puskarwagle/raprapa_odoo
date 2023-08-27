@@ -13,7 +13,9 @@
                         "Pauwadungma Rural Municipality",
                         "Temkemaiyung Rural Municipality",
                         "Salpasilichho Rural Municipality",
-                        "Ramprasad Rai Rural Municipality"
+                        "Ramprasad Rai Rural Municipality",
+                        "Shadananda Municipality",
+                        "Bhojpur Municipality"
                     ]
                 },
                 {
@@ -129,6 +131,12 @@
                 {
                     "name": "Sankhuwasabha",
                     "municipalities": [
+                        "Makalu Rural Municipality",
+                        "Chichila Rural Municipality",
+                        "Silichong Rural Municipality",
+                        "Bhotkhola Rural Municipality",
+                        "Sabhapokhari Rural Municipality",
+                        "Dharmadevi Municipality",
                         "Madi Municipality",
                         "Panchakhapan Municipality",
                         "Chainpur Municipality",
@@ -410,7 +418,6 @@
                 {
                     "name": "Dhading",
                     "municipalities": [
-                        "Gajuri Rural Municipality",
                         "Galchi Rural Municipality",
                         "Thakre Rural Municipality",
                         "Siddhalek Rural Municipality",
@@ -458,6 +465,11 @@
                 {
                     "name": "Kavrepalanchok",
                     "municipalities": [
+                        "Roshi Rural Municipality",
+                        "Temal Rural Municipality",
+                        "Bhumlu Rural Municipality",
+                        "Mahabharat Rural Municipality",
+                        "Bethanchowk Rural Municipality",
                         "Khanikhola Rural Municipality",
                         "Chaurideurali Rural Municipality",
                         "Banepa Municipality",
@@ -589,6 +601,14 @@
                 {
                     "name": "Gorkha",
                     "municipalities": [
+                        "Gandaki Rural Municipality",
+                        "Dharche Rural Municipality",
+                        "Aarughat Rural Municipality",
+                        "Ajirkot Rural Municipality",
+                        "Sahid Lakhan Rural Municipality",
+                        "Siranchok Rural Municipality",
+                        "Bhimsenthapa Rural Municipality",
+                        "Chum Nubri Rural Municipality",
                         "Barpak Sulikot Rural Municipality",
                         "Palungtar Municipality",
                         "Gorkha Municipality"
@@ -764,7 +784,17 @@
                 {
                     "name": "Gulmi",
                     "municipalities": [
-                        "Ruru Rural Municipality"
+                        "Isma Rural Municipality",
+                        "Madane Rural Municipality",
+                        "Malika Rural Municipality",
+                        "Chatrakot Rural Municipality",
+                        "Dhurkot Rural Municipality",
+                        "Satyawati Rural Municipality",
+                        "Chandrakot Rural Municipality",
+                        "Kaligandaki Rural Municipality",
+                        "Gulmidarbar Rural Municipality",
+                        "Resunga Municipality",
+                        "Musikot Municipality"
                     ]
                 },
                 {
@@ -905,8 +935,6 @@
                 {
                     "name": "Humla",
                     "municipalities": [
-                        "Simkot Rural Municipality",
-                        "Namkha Rural Municipality",
                         "Chankheli Rural Municipality",
                         "Tanjakot Rural Municipality",
                         "Sarkegad Rural Municipality",
@@ -942,15 +970,15 @@
                 {
                     "name": "Kalikot",
                     "municipalities": [
-                        "Raskot Municipality",
-                        "Tilagufa Municipality",
+                        "Mahawai Rural Municipality",
+                        "Palata Rural Municipality",
                         "Naraharinath Rural Municipality",
                         "Pachaljharana Rural Municipality",
                         "Subha Kalika Rural Municipality",
                         "Sanni Tribeni Rural Municipality",
                         "Khandachakra Municipality",
-                        "Mahawai Rural Municipality",
-                        "Palata Rural Municipality"
+                        "Raskot Municipality",
+                        "Tilagufa Municipality"
                     ]
                 },
                 {
@@ -1030,12 +1058,7 @@
                         "Shivanath Rural Municipality",
                         "Surnaya Rural Municipality",
                         "Dilasaini Rural Municipality",
-                        "Pancheshwar Rural Municipality",
-                        "Dogadakedar Rural Municipality",
-                        "Melauli Municipality",
-                        "Dasharathchanda Municipality",
-                        "Purchaudi Municipality",
-                        "Patan Municipality"
+                        "Pancheshwar Rural Municipality"
                     ]
                 },
                 {
