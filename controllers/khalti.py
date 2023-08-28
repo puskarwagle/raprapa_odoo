@@ -20,7 +20,7 @@ class KhaltiController(http.Controller):
         amount = post.get("amount")
 
         data = {
-            "return_url": "http://localhost:8069/payment_success/",  # Use a different URL for payment success
+            "return_url": "http://localhost:8069/id_card/",  # Use a different URL for payment success
             "website_url": "http://localhost:8069/payment/",
             "amount": amount,
             "purchase_order_id": "12345",
@@ -44,7 +44,7 @@ class KhaltiController(http.Controller):
         # Redirect the user to the payment URL
         return redirect(payment_url, code=302)
 
-    @http.route('/payment_success/', type='http', auth='public', website=True, csrf=False)
+    @http.route('/id_card/', type='http', auth='public', website=True, csrf=False)
     def payment_success(self):
         # Add logic for handling a successful payment here
         # For example, you can render the 'raprapa.id_card' template
