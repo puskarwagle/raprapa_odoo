@@ -1,0 +1,13 @@
+ body {
+    background-color: blanchedalmond;
+ }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.container h2 {
+   text-align: center;
+}

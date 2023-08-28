@@ -1,10 +1,34 @@
 from odoo import http
 from odoo.http import request
 import os
+import smtplib
+import random
 import base64
 
 
 class MyFormController(http.Controller):
+    def send_verification_code(self, recipient_email):
+        subject = 'Your Verification Code'
+        verification_code = str(random.randint(100000, 999999))
+        message = f'Your verification code is: {verification_code}'
+
+        sender_email = 'utshabbardewa2055@gmail.com'  # Replace with your sender email
+        smtp_server = "smtp.gmail.com"
+        smtp_port = 587  # Replace with the appropriate port
+        smtp_username = "utshabbardewa2055@gmail.com"
+        smtp_password = "xwhydejfrkvbmqms"  # Replace with your SMTP password
+        http.request.session['verification_code'] = verification_code
+        try:
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()
+            server.login(smtp_username, smtp_password)
+
+            msg = f'Subject: {subject}\n\n{message}'
+            server.sendmail(sender_email, recipient_email, msg)
+            server.quit()
+            print("Verification code sent successfully.")
+        except Exception as e:
+            print(f"Error sending verification code: {e}")
     @http.route('/submit_form', type='http', auth='public', website=True)
     def submit_form(self, **post):
         # Retrieve data from the submitted form
@@ -14,6 +38,8 @@ class MyFormController(http.Controller):
         citizenship_number = post.get('citizenship_number')
         voter_id = post.get('voter_id')
         email = post.get('email')
+        if email:
+            self.send_verification_code(email)
         membership_duration = post.get("membership_duration")
         membership_type = post.get("membership_type")
 
@@ -36,6 +62,17 @@ class MyFormController(http.Controller):
         current_voting_center = post.get("current_voting_center")
 
         membership_date = post.get("membership_date")
+
+        father_or_mother_name = post.get("father_or_mother_name")
+        husband_or_wife_name = post.get("husband_or_wife_name")
+
+        education = post.get("education")
+        marital_status = post.get("marital_status")
+        religion = post.get("religion")
+        caste = post.get("caste")
+        past_responsibility = post.get("past_responsibility")
+        name_of_approver = post.get("name_of_approver")
+        position_of_approver = post.get("position_of_approver")
 
         # Handle uploaded photo
         photo = post.get('photo')
@@ -91,6 +128,15 @@ class MyFormController(http.Controller):
             'current_municipality': current_municipality,
             'current_voting_center': current_voting_center,
             'membership_date': membership_date,
+            'father_or_mother_name': father_or_mother_name,
+            'husband_or_wife_name': husband_or_wife_name,
+            'education': education,
+            'marital_status': marital_status,
+            'religion': religion,
+            'caste': caste,
+            'past_responsibility': past_responsibility,
+            'name_of_approver': name_of_approver,
+            'position_of_approver': position_of_approver,
         }
         new_member = Member.create(member_vals)
 
@@ -103,8 +149,23 @@ class MyFormController(http.Controller):
         session['email'] = email
 
         # Redirect to the payment page
-        return request.redirect('/payment')
+        return request.render('raprapa.otp_verify')
 
+    @http.route('/verify_otp', type='http', auth='public', website=True)
+    def verify_otp(self, **post):
+        # Get the entered verification code
+        entered_code = post.get('verification_code')
+
+        # Retrieve the stored verification code
+        stored_code = http.request.session.get('verification_code')
+
+        # Check if the entered code matches the stored code
+        if entered_code == stored_code:
+            # If the verification code is correct, redirect to the payment page
+            return http.request.redirect('/payment')
+        else:
+            # If the code is incorrect, you can display an error message or redirect as needed
+            return request.render('raprapa.otp_unverified')
 
     @http.route('/payment', type='http', website=True, auth="public")
     def paymentpage(self):

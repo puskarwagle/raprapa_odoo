@@ -46,34 +46,35 @@ class Member(models.Model):
     husband_or_wife_name = fields.Char(string="Husband's/Wife's name")
 
     education = fields.Selection([
-        ('ten plus two', 'Ten plus two'),
-        ('graduation', 'Graduation'),
+        ('literate', 'Literate'),
+        ('plus_two', 'Ten plus two (+2)'),
+        ('bachelors', 'Graduation'),
         ('masters', "Master's Degree"),
         ('phd', 'Ph.D.'),
-        ('other', 'Other'),
+        ('other_education', 'Others'),
     ], string='Education')
 
     marital_status = fields.Selection([
-        ('single', 'Single'),
         ('married', 'Married'),
-        ('divorced', 'Divorced'),
-        ('widowed', 'Widowed'),
+        ('unmarried', 'Unmarried'),
+        ('other_marital_status', 'Others'),
     ], string='Marital Status')
 
     religion = fields.Char(string='Religion')
 
     caste = fields.Selection([
-        ('aadivasi', 'Aadivasi/Tribe'),
-        ('dalit', 'Dalit'),
-        ('madhesi', 'Madhesi'),
-        ('muslim', 'Muslim'),
-        ('backward_region', 'Backward Region'),
-        ('disabled', 'Disabled'),
-        ('others', 'Others'),
+        ('baun_caste', 'Khasarya'),
+        ('aadiwasi_caste', 'Aadiwasi/tribe'),
+        ('dalit_caste', 'Dalit'),
+        ('madhesi_caste', 'Madhesi'),
+        ('muslim_caste', 'Muslim'),
+        ('pichhadieko_kshetra_caste', 'Backward Region'),
+        ('apangata_caste', 'Disabled'),
+        ('other_caste', 'Others'),
     ], string='Caste')
 
     past_responsibility = fields.Char(string='Past Responsibility')
-    approver_name = fields.Char(string='Approver Name')
-    approver_position = fields.Char(string='Approver Position')
+    name_of_approver = fields.Char(string='Approver Name')
+    position_of_approver = fields.Char(string='Approver Position')
 
 
