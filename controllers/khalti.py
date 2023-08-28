@@ -46,6 +46,10 @@ class KhaltiController(http.Controller):
 
     @http.route('/id_card/', type='http', auth='public', website=True, csrf=False)
     def payment_success(self):
-        # Add logic for handling a successful payment here
-        # For example, you can render the 'raprapa.id_card' template
-        return request.render('raprapa.id_card')
+        session = request.session
+        name = session.get('name')
+        return request.render('raprapa.id_card', {
+            'redirect_params': {
+                'name': name
+            }
+            })

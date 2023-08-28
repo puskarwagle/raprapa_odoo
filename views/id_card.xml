@@ -3,55 +3,82 @@
         <head>
             <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
                   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet"/>
+            <link rel="stylesheet" href="/raprapa/static/src/css/idcard.css"/>
         </head>
         <body>
             <main class="container">
                 <div class="id-card mt-5 ">
-        <div class="d-flex justify-content-between align-items-center head-info"
-            style="background-color: cornflowerblue;">
-            <img src="../static/images/rapralogo.png" alt="raprapa logo" width="40">
-            <h6><strong>Rastriya Prajatantra Party </strong></h6>
-            <img src="../static/images/emblem.png" alt="Nepal emblem" width="40">
-        </div>
+                    <div class="d-flex justify-content-between align-items-center head-info"
+                         style="background-color: cornflowerblue;">
+                        <img src="/raprapa/static/src/img/rapralogo.png" alt="raprapa logo" width="40"/>
+                        <h6>
+                            <strong>Rastriya Prajatantra Party</strong>
+                        </h6>
+                        <img src="/raprapa/static/src/img/emblem.png" alt="Nepal emblem" width="40"/>
+                    </div>
 
-        <div class="d-flex flex-column justify-content-between pe-2 ps-2 mt-1">
-                <div class="text-nowrap  " style="font-size: 0.6rem;font-weight: 600;">
-                    <p style="text-transform: uppercase;"><strong>{{ name }}</strong></p>
+                    <div class="d-flex flex-column justify-content-between pe-2 ps-2 mt-1">
+                        <div class="text-nowrap  " style="font-size: 0.6rem;font-weight: 600;">
+                            <p style="text-transform: uppercase;">
+                                <strong><t t-esc="redirect_params.get('name')"/></strong>
+                            </p>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                {% if image_path %}
+                                <img src="/media/{{ image_path }}" alt="User's Image" height="" style="height: auto;"
+                                     width="80"/>
+                                {% else %}
+                                <p>No image available</p>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex flex-column ps-1 hamropem">
+                                <p>
+                                    <strong>ID No :
+                                        <span>no function for this</span>
+                                    </strong>
+                                </p>
+                                <p>Voter ID :
+                                    <span>{{voter_id}}</span>
+                                </p>
+                                <p>Membership-type:
+                                    <span>{{ membership_type }}</span>
+                                </p>
+                                <p>Gender:
+                                    <span>{{ gender }}</span>
+                                </p>
+                                <p>Phone No :
+                                    <span>{{ phone }}</span>
+                                </p>
+                                <p>Citizenship-number :
+                                    <span>{{citizenship_number}}1566156</span>
+                                </p>
+                                <p>Expiry Date :
+                                    <span>{{ expiry_date }}</span>
+                                </p>
+                            </div>
+                            <div class="d-flex flex-column align-items-center hami">
+                                <img src="{{ qr_code_img }}" alt="QR Code" height="60" width="70"/>
+                                <img src="/raprapa/static/src/img/signature1.png" alt="Signature" height="20"
+                                     width="70"/>
+                                <p>
+                                    <strong>Rajendra Lingden</strong>
+                                </p>
+                                <p>General Secretary</p>
+                            </div>
+                        </div>
+                        <!-- </div>  -->
+                    </div>
+
+                    <footer class="mt-1">
+                        <p>I will abide by the party rules and regulations party rules and regulations.</p>
+                        <p>
+                            <strong>Rastriya Prajatantra Party</strong>
+                        </p>
+                        <p>Charumati Bihar, Chabahil, Kathmandu, Nepal</p>
+                    </footer>
                 </div>
-
-                <div class="d-flex justify-content-between">
-                    <div class="">
-                        {% if image_path %}
-                        <img src="/media/{{ image_path }}" alt="User's Image" height="" style="height: auto;" width="80">
-                        {% else %}
-                        <p>No image available</p>
-                        {% endif %}
-                    </div>
-                    <div class="d-flex flex-column ps-1 hamropem">
-                        <p><strong>ID No : <span>no function for this</span></strong></p>
-                        <p>Voter ID : <span>{{voter_id}}</span></p>
-                        <p>Membership-type: <spa>{{ membership_type }}</span></p>
-                        <p>Gender: <span>{{ gender }}</span></p>
-                        <p>Phone No : <span>{{ phone }}</span></p>
-                        <p>Citizenship-number :<span>{{citizenship_number}}1566156</span></p>
-                        <p>Expiry Date : <span>{{ expiry_date }}</span></p>
-                    </div>
-                    <div class="d-flex flex-column align-items-center hami">
-                        <img src="{{ qr_code_img }}" alt="QR Code" height="60" width="70">
-                        <img src="../static/images/signature1.png" alt="Signature" height="20" width="70">
-                        <p><strong>Rajendra Lingden</strong></p>
-                        <p>General Secretary</p>
-                    </div>
-                </div>
-            <!-- </div>  -->
-        </div>
-
-        <footer class="mt-1">
-            <p>I will abide by the party rules and regulations party rules and regulations.</p>
-            <p><strong>Rastriya Prajatantra Party </strong> </p>
-            <p>Charumati Bihar, Chabahil, Kathmandu, Nepal</p>
-        </footer>
-    </div>
             </main>
         </body>
     </template>
