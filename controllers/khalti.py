@@ -48,8 +48,27 @@ class KhaltiController(http.Controller):
     def payment_success(self):
         session = request.session
         name = session.get('name')
+        membership_type = session.get('membership_type')
+        membership_duration = session.get('membership_duration')
+        email = session.get('email')
+        phone = session.get('phone')
+        voter_id = session.get('voter_id')
+        citizenship_number = session.get('citizenship_number')
+        photo_filename = session.get('photo_filename')
+        gender = session.get('gender')
+        expiry_date = session.get('expiry_date')
+
         return request.render('raprapa.id_card', {
             'redirect_params': {
-                'name': name
+                'name': name,
+                'membership_type': membership_type,
+                'membership_duration': membership_duration,
+                'email': email,
+                'phone': phone,
+                'voter_id': voter_id,
+                'citizenship_number': citizenship_number,
+                'photo_filename': photo_filename,
+                'gender': gender,
+                'expiry_date': expiry_date,
             }
-            })
+        })

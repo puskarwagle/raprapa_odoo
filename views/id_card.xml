@@ -26,12 +26,10 @@
 
                         <div class="d-flex justify-content-between">
                             <div class="">
-                                {% if image_path %}
-                                <img src="/media/{{ image_path }}" alt="User's Image" height="" style="height: auto;"
-                                     width="80"/>
-                                {% else %}
-                                <p>No image available</p>
-                                {% endif %}
+
+                                <img t-attf-src="/raprapa/static/user_images/#{redirect_params.get('photo_filename')}" alt="User's Image" height="" style="height: auto;" width="80"/>
+
+
                             </div>
                             <div class="d-flex flex-column ps-1 hamropem">
                                 <p>
@@ -40,22 +38,22 @@
                                     </strong>
                                 </p>
                                 <p>Voter ID :
-                                    <span>{{voter_id}}</span>
+                                    <span><t t-esc="redirect_params.get('voter_id')"/></span>
                                 </p>
                                 <p>Membership-type:
-                                    <span>{{ membership_type }}</span>
+                                    <span><t t-esc="redirect_params.get('membership_type')"/></span>
                                 </p>
                                 <p>Gender:
-                                    <span>{{ gender }}</span>
+                                    <span><t t-esc="redirect_params.get('gender')"/></span>
                                 </p>
                                 <p>Phone No :
-                                    <span>{{ phone }}</span>
+                                    <span><t t-esc="redirect_params.get('phone')"/></span>
                                 </p>
                                 <p>Citizenship-number :
-                                    <span>{{citizenship_number}}1566156</span>
+                                    <span><t t-esc="redirect_params.get('citizenship_number')"/></span>
                                 </p>
                                 <p>Expiry Date :
-                                    <span>{{ expiry_date }}</span>
+                                    <span><t t-esc="redirect_params.get('expiry_date')"/></span>
                                 </p>
                             </div>
                             <div class="d-flex flex-column align-items-center hami">

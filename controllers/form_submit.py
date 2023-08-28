@@ -85,7 +85,7 @@ class MyFormController(http.Controller):
             extension = extension.lower()  # Ensure lowercase
 
             # Construct the new filename
-            new_filename = f"{name}_{phone[-5:]}{extension}"
+            new_filename = f"{name.replace(' ', '_')}_{phone[-5:]}{extension}"
 
             # Save the file to the desired directory
             photo_path = os.path.join(
@@ -147,6 +147,11 @@ class MyFormController(http.Controller):
         session['membership_type'] = membership_type
         session['phone'] = phone
         session['email'] = email
+        session['voter_id'] = voter_id
+        session['citizenship_number'] = citizenship_number
+        session['gender'] = gender
+        session['photo_filename'] = photo_filename
+        # session['expiry_date'] = expiry_date
 
         # Redirect to the payment page
         return request.render('raprapa.otp_verify')
