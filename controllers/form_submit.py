@@ -3,6 +3,7 @@ from odoo.http import request
 import os
 import smtplib
 import random
+from datetime import datetime, timedelta
 import base64
 
 
@@ -32,6 +33,16 @@ class MyFormController(http.Controller):
     @http.route('/submit_form', type='http', auth='public', website=True)
     def submit_form(self, **post):
         # Retrieve data from the submitted form
+        print("Received POST data:", post)
+
+        csrf_token = http.request.csrf_token()
+        submitted_token = post.get('csrf_token')
+        print("Generated CSRF Token:", csrf_token)
+        print("Submitted CSRF Token:", submitted_token)
+
+        # if csrf_token != submitted_token:
+        #     return http.Response('Invalid CSRF token', status=403)
+
         name = post.get('name')
         phone = post.get('phone')
         birth_date = post.get('birth_date')
@@ -42,6 +53,18 @@ class MyFormController(http.Controller):
             self.send_verification_code(email)
         membership_duration = post.get("membership_duration")
         membership_type = post.get("membership_type")
+
+        current_date = datetime.now().date()
+        expiry_date = current_date
+        if membership_duration == 'is_fouryears':
+            expiry_date += timedelta(days=365 * 4)  # Adding 4 years' worth of days
+        elif membership_duration == 'is_oneyear':
+            expiry_date += timedelta(days=365)
+        print(expiry_date)
+
+        current_datetime = datetime.now()
+        id_no = str(int(current_datetime.timestamp() * 1000))[-6:]
+        print(id_no)
 
         gender = post.get("gender")
         family_count = post.get("family_count")
@@ -107,8 +130,10 @@ class MyFormController(http.Controller):
             'voter_id': voter_id,
             'phone': phone,
             'email': email,
+            'id_no': id_no,
             'membership_duration': membership_duration,
             'membership_type': membership_type,
+            'expiry_date': expiry_date,
             'photo_filename': photo_filename,
             'birth_date': birth_date,
             'gender': gender,
@@ -143,6 +168,7 @@ class MyFormController(http.Controller):
         # Store parameters in the session
         session = request.session
         session['name'] = name
+        session['id_no'] = id_no
         session['membership_duration'] = membership_duration
         session['membership_type'] = membership_type
         session['phone'] = phone
@@ -151,7 +177,8 @@ class MyFormController(http.Controller):
         session['citizenship_number'] = citizenship_number
         session['gender'] = gender
         session['photo_filename'] = photo_filename
-        # session['expiry_date'] = expiry_date
+        print(photo_filename)
+        session['expiry_date'] = expiry_date
 
         # Redirect to the payment page
         return request.render('raprapa.otp_verify')

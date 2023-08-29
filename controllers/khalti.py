@@ -55,8 +55,10 @@ class KhaltiController(http.Controller):
         voter_id = session.get('voter_id')
         citizenship_number = session.get('citizenship_number')
         photo_filename = session.get('photo_filename')
+        print(photo_filename)
         gender = session.get('gender')
         expiry_date = session.get('expiry_date')
+        id_no = session.get('id_no')
 
         return request.render('raprapa.id_card', {
             'redirect_params': {
@@ -70,5 +72,6 @@ class KhaltiController(http.Controller):
                 'photo_filename': photo_filename,
                 'gender': gender,
                 'expiry_date': expiry_date,
+                'id_no': id_no,
             }
         })

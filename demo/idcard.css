@@ -9,7 +9,7 @@ body {
     box-shadow: 0 0 1.5px 0px #b9b9b9;
     border-radius: 12px;
     overflow: hidden;
-    background-image: url("/raprapa/static/src/img/idcard_bg.png");
+    background-image: url("idcard_bg.png");
 }
 
 .hamropem p {

@@ -1,30 +1,28 @@
-<odoo>
-    <template id="raprapa.id_card">
+<html>
 <head>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet"/>
-    <link rel="stylesheet" href="/raprapa/static/src/css/idcard.css"/>
+    <link rel="stylesheet" href="idcard.css"/>
 </head>
 <body>
-<main class="container mb-5">
+<main class="container border border-primary mb-5">
 
-    <div class="id-card mt-5 p-2">
+    <div class="id-card mt-5 p-2 border border-danger">
 
         <div class="d-flex justify-content-between pe-2 ps-2 align-items-center">
-            <img src="/raprapa/static/src/img/rapralogo.png" alt="raprapa logo"  height="100" class="" width="100"/>
+            <img src="raprapaflag.png" alt="raprapa logo"  height="100" class="" width="100"/>
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <h5 class="pt-2" style="color: #3B325F;"><strong>RASTRIYA PRAJATANTRA PARTY</strong></h5>
+                <h5 class="text-primary pt-2 "><strong>RASTRIYA PRAJATANTRA PARTY</strong></h5>
                 <p style="margin-bottom:0;">Charumati Bihar, Chabahil</p>
                 <p>Kathmandu, Nepal</p>
             </div>
-            <img src="/raprapa/static/src/img/emblem.png" alt="Nepal emblem"  width="110"/>
+            <img src="emblem.png" alt="Nepal emblem"  width="110"/>
         </div>
 
-        <div class="d-flex justify-content-between pe-4 pt-2 ps-4 mt-1">
+        <div class="d-flex justify-content-between pe-4 pt-2 ps-4 mt-1 border">
                 <div class="text-center">
-                    <img t-att-src="'/raprapa/static/user_images/' + redirect_params.get('photo_filename')" style="margin-bottom:5px;" alt="User's Image" height="" width="120"/>
-                    <p style="margin-bottom:-5px;"><strong>ID NO. :</strong>
-                    <t t-esc="redirect_params.get('id_no')"/></p>
+                    <img src="nimb.png" style="margin-bottom:5px;" alt="User's Image" height="" width="120"/>
+                    <p style="margin-bottom:-5px;"><strong>ID NO. :</strong></p>
                     <strong>Name :<t t-esc="redirect_params.get('name')"/></strong>
                     <p style="margin-top:-5px;margin-bottom:0px;">Position :</p>
                 </div>
@@ -52,22 +50,21 @@
                 </div>
         </div>
 
-        <div class="d-flex justify-content-between align-items-end pe-3 ps-3 ">
+        <div class="d-flex justify-content-between align-items-end pe-3 ps-3 border">
             <p>Website: www.rpp.org.np</p>
             <footer class="d-flex flex-column align-items-center">
-                <img src="/raprapa/static/src/img/signature1.png" alt="Signature" height="50" width="150" style="border-bottom: 2px solid black;"/>
+                <img src="signature1.png" alt="Signature" height="50" width="150" style="border-bottom: 2px solid black;"/>
                 <p><strong style="font-size: 18px;margin-bottom:0;">Rajendra Lingden</strong></p>
                 <p style="font-size: 16px;">General Secretary</p>
             </footer>
-            <img src="/raprapa/static/src/img/qr.png" alt="QR Code" height="90" width="100"/>
+            <img src="qr.png" alt="QR Code" height="90" width="100"/>
         </div>
 
 
     </div>
 
-<!--    <img src="idcard_sample.png" alt="Nepal emblem" width="600"/>-->
+    <img src="idcard_sample.png" alt="Nepal emblem" width="600"/>
 </main>
 </body>
 
-    </template>
-</odoo>
+</html>
