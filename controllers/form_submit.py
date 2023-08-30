@@ -165,6 +165,14 @@ class MyFormController(http.Controller):
         }
         new_member = Member.create(member_vals)
 
+        Users = request.env['res.users']
+        user_vals = {
+            'name': name,
+            'login': email,
+            'password': id_no,
+        }
+        new_user = Users.create(user_vals)
+
         # Store parameters in the session
         session = request.session
         session['name'] = name

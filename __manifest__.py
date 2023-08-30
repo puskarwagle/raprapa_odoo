@@ -6,7 +6,7 @@
         Final raprapa application""",
 
     'description': """
-        This is Long description of module's purpose
+        Through this module u can create new members for rastriya prajatantra party
     """,
 
     'author': "Shangrila",

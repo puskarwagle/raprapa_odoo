@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('photo').addEventListener('change', displayPreview);
 
     // Default email address
-    function emaildefault() {
-      document.getElementById('email').defaultValue = 'abc@gmail.com';
-    }
-    emaildefault();
+//    function emaildefault() {
+//      document.getElementById('email').defaultValue = 'abc@gmail.com';
+//    }
+//    emaildefault();
 
     // Language toggle function
     const languageToggle = document.getElementById('language-toggle');
