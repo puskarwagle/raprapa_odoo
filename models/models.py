@@ -9,7 +9,7 @@ class Member(models.Model):
     membership_type = fields.Char(string='Membership Type')
     membership_duration = fields.Char(string='Membership Duration')
 
-    id_no_char = fields.Char(string='ID No.')
+    id_no = fields.Char(string='ID No.')
     paid = fields.Boolean(string='Paid', default=False)
     membership_date = fields.Date(string='Membership Date')
     expiry_date = fields.Date(string='Expiry Date')
